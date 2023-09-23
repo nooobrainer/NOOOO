@@ -1,0 +1,630 @@
+<!--
+Prashanna Karki
+Shweta Chohan
+Sudip
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>BookMyFlight</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <style>
+            *, *:before, *:after {
+     box-sizing: border-box;
+   }
+   
+   html {
+     font-size: 100%;
+   }
+   
+   body {
+     font-family: acumin-pro, system-ui, sans-serif;
+     margin: 0;
+     display: grid;
+     grid-template-rows: auto 1fr auto;
+     font-size: 14px;
+     background-color: #f4f4f4;
+     align-items: start;
+     min-height: 100vh;
+   }
+   
+   .footer {
+     display: flex;
+     flex-flow: row wrap;
+     padding: 30px 30px 20px 30px;
+     color: #2f2f2f;
+     background-color: #fff;
+     border-top: 1px solid #e5e5e5;
+   }
+   
+   .footer > * {
+     flex:  1 100%;
+   }
+   
+   .footer__addr {
+     margin-right: 1.25em;
+     margin-bottom: 2em;
+   }
+   
+   .footer__logo {
+     font-family: 'Pacifico', cursive;
+     font-weight: 400;
+     text-transform: lowercase;
+     font-size: 1.5rem;
+   }
+   
+   .footer__addr h2 {
+     margin-top: 1.3em;
+     font-size: 15px;
+     font-weight: 400;
+   }
+   
+   .nav__title {
+     font-weight: 400;
+     font-size: 15px;
+   }
+   
+   .footer address {
+     font-style: normal;
+     color: #999;
+   }
+   
+   .footer__btn {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 36px;
+     max-width: max-content;
+     background-color: rgb(33, 33, 33, 0.07);
+     border-radius: 100px;
+     color: #2f2f2f;
+     line-height: 0;
+     margin: 0.6em 0;
+     font-size: 1rem;
+     padding: 0 1.3em;
+   }
+   
+   .footer ul {
+     list-style: none;
+     padding-left: 0;
+   }
+   
+   .footer li {
+     line-height: 2em;
+   }
+   
+   .footer a {
+     text-decoration: none;
+   }
+   
+   .footer__nav {
+     display: flex;
+       flex-flow: row wrap;
+   }
+   
+   .footer__nav > * {
+     flex: 1 50%;
+     margin-right: 1.25em;
+   }
+   
+   .nav__ul a {
+     color: #999;
+   }
+   
+   .nav__ul--extra {
+     column-count: 2;
+     column-gap: 1.25em;
+   }
+   
+   .legal {
+     display: flex;
+     flex-wrap: wrap;
+     color: #999;
+   }
+     
+   .legal__links {
+     display: flex;
+     align-items: center;
+   }
+   
+   .heart {
+     color: #2f2f2f;
+   }
+   
+   @media screen and (min-width: 24.375em) {
+     .legal .legal__links {
+       margin-left: auto;
+     }
+   }
+   
+   @media screen and (min-width: 40.375em) {
+     .footer__nav > * {
+       flex: 1;
+     }
+     
+     .nav__item--extra {
+       flex-grow: 2;
+     }
+     
+     .footer__addr {
+       flex: 1 0px;
+     }
+     
+     .footer__nav {
+       flex: 2 0px;
+     }
+   }
+         </style>
+        <style>
+            * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto";
+  font-size: 14px;
+  background-size: 200% 100% !important;
+  -webkit-animation: move 10s ease infinite;
+          animation: move 10s ease infinite;
+  transform: translate3d(0, 0, 0);
+  background-color:#A2C7E5 ;
+  height: 100vh;
+}
+
+.user {
+  width: 80%;
+  max-width: 340px;
+  margin: 10vh auto;
+}
+
+.user__header {
+  text-align: center;
+  opacity: 0;
+  transform: translate3d(0, 500px, 0);
+  -webkit-animation: arrive 500ms ease-in-out 0.7s forwards;
+          animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+
+.user__title {
+  font-size: 14px;
+  margin-bottom: -10px;
+  font-weight: 500;
+  color: white;
+}
+
+.form {
+  margin-top: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(0, 500px, 0);
+  -webkit-animation: arrive 500ms ease-in-out 0.9s forwards;
+          animation: arrive 500ms ease-in-out 0.9s forwards;
+}
+
+.form--no {
+  -webkit-animation: NO 1s ease-in-out;
+          animation: NO 1s ease-in-out;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  transition: 0.3s;
+}
+.form__input:focus {
+  background: #f7f7f7;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  -webkit-appearance: none;
+  outline: 0;
+  border: 0;
+  color: white;
+  background:#8eb3d1 ;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #a09486;
+}
+
+@-webkit-keyframes NO {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes NO {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+@-webkit-keyframes arrive {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes arrive {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+        </style>
+      <style>
+         *, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: acumin-pro, system-ui, sans-serif;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-size: 14px;
+  background-color: #f4f4f4;
+  align-items: start;
+  min-height: 100vh;
+}
+
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 30px 30px 20px 30px;
+  color: #2f2f2f;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer > * {
+  flex:  1 100%;
+}
+
+.footer__addr {
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+}
+
+.footer__logo {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  text-transform: lowercase;
+  font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+  margin-top: 1.3em;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nav__title {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.footer address {
+  font-style: normal;
+  color: #999;
+}
+
+.footer__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  max-width: max-content;
+  background-color: rgb(33, 33, 33, 0.07);
+  border-radius: 100px;
+  color: #2f2f2f;
+  line-height: 0;
+  margin: 0.6em 0;
+  font-size: 1rem;
+  padding: 0 1.3em;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  line-height: 2em;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer__nav {
+  display: flex;
+	flex-flow: row wrap;
+}
+
+.footer__nav > * {
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+
+.nav__ul a {
+  color: #999;
+}
+
+.nav__ul--extra {
+  column-count: 2;
+  column-gap: 1.25em;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  color: #999;
+}
+  
+.legal__links {
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  color: #2f2f2f;
+}
+
+@media screen and (min-width: 24.375em) {
+  .legal .legal__links {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 40.375em) {
+  .footer__nav > * {
+    flex: 1;
+  }
+  
+  .nav__item--extra {
+    flex-grow: 2;
+  }
+  
+  .footer__addr {
+    flex: 1 0px;
+  }
+  
+  .footer__nav {
+    flex: 2 0px;
+  }
+}
+      </style>
+    <title>Node.js express mongDB CRUD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="bg-info">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">BookMyFlight</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li id="logout" class="nav-item">
+        <a class="nav-link">Logout</a>
+      </li>
+    </form>
+  </div>
+</nav>
+    <div style="margin-top:50px;" class="row">
+        <div class="col-md-10 offset-md-1" style="background-color: #fff;margin-top: 25px;padding:20px;">
+<h3>Edit Flight</h3>
+<form>
+    <!-- <input type="hidden" name="_id" value="{{flight._id}}"> -->
+    <div class="form-group">
+        <label>From</label>
+        <input type="text" class="form-control" name="from" placeholder="From" id="editFrom" required>
+        <!-- <div class="text-danger">
+            {{flight.fromError}}</div> -->
+    </div>
+    <div class="form-group">
+        <label>Destination</label>
+        <input type="text" class="form-control" name="to" placeholder="Destination"  id="editTo" required>
+        <!-- <div class="text-danger">
+            {{flight.toError}}</div>
+    </div> -->
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Departure date</label>
+            <input type="date" class="form-control" name="date" placeholder="Mobile" id="editDate" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Departure time</label>
+            <input type="time" class="form-control" name="time" placeholder="time" id="editTime" required>
+        </div>
+        <div class="form-group col-md-12">
+            <label>Seat Availability</label>
+            <input type="number" class="form-control" name="seats" placeholder="Seats Avaliable" id="editSeats" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="button" id="submit-btn-edit-flight" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" id="viewList"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>
+        </div>
+    </div>
+    <div class="col-md-10 offset-md-1">
+        <p></p>
+    </div>
+<!-- Javascript files-->
+      <script src="../js/jquery.min.js"></script>
+      <script src="../js/popper.min.js"></script>
+      <script src="../js/bootstrap.bundle.min.js"></script>
+      <script src="../js/jquery-3.0.0.min.js"></script>
+      <script src="../js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="../js/custom.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+          let id = '';
+          document.getElementById('submit-btn-edit-flight').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const data = {
+                from : document.getElementById('editFrom').value,
+                seats : document.getElementById('editSeats').value,
+                to : document.getElementById('editTo').value,
+                date : document.getElementById('editDate').value,
+                time : document.getElementById('editTime').value,
+                _id: id
+            };
+
+            if (!data.from || !data.seats || !data.date || !data.to || !data.time) {
+                return;
+            }
+            const response = await fetch('http://localhost:3000/flight/editRecord', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data) // converting the js object to JSON format
+            });
+            // getting the response from the server
+            const responseData = await response.json();
+
+            // if response status is 201
+            if (response.status === 201) {
+                document.getElementById('error').innerText = responseData.message;
+            } else {
+                console.log('responseData', responseData);
+                location.href = 'http://localhost:3000/flightList.html';
+            }
+        });
+          document.getElementById('viewList').addEventListener('click', (e) => {
+            location.href="http://localhost:3000/flightList.html";
+          })
+          async function getFlightData(id) {
+            const response = await fetch('http://localhost:3000/flight/'+id, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const responseData = await response.json();
+
+            // if response status is 201
+            if (response.status === 201) {
+                document.getElementById('error').innerText = responseData.message;
+            } else {
+                var d = new Date(responseData.data.date);
+                var dd = d.getDate(); 
+                var mm = d.getMonth()+1;
+                var yyyy = d.getFullYear(); 
+                if(dd<10){dd='0'+dd} 
+                if(mm<10){mm='0'+mm};
+                const ddd = yyyy+'-'+mm+'-'+dd;
+                console.log('dd++yyyy;', dd+'-'+mm+'-'+yyyy);
+                document.getElementById('editFrom').value = responseData.data.from;
+                document.getElementById('editSeats').value = responseData.data.seats;
+                document.getElementById('editTo').value = responseData.data.to;
+                document.getElementById('editDate').value = ddd.toString();
+                document.getElementById('editTime').value = responseData.data.time;
+            }
+          }
+          function getId() {
+            var myParam = location.search.split('id=')[1];
+            console.log('myParam', myParam);
+            id = myParam;
+            getFlightData(myParam);
+          }
+          getId();
+          document.getElementById('logout').addEventListener('click', (e) => {
+              location.href = "http://localhost:3000/index.html";
+          })
+      </script>
+</body>
+
+</html>
